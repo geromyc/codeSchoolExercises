@@ -11,13 +11,24 @@ var cities = {
    'Boston': 'Massachusetts',
    'Indianapolis': 'Indiana',
    'Chicago': 'Illinois',
-   'Los Angeles': 'California'};
+   'Los Angeles': 'California',};
    
 app.param('name', function(request, response, next){
    var name = request.params.name;
    var city = name[0].toUpperCase() + name.slice(1).toLowerCase();
    request.cityName = city;
    next();
+});
+
+app.post('/cities', parseUrlencoded, function(request, response) {
+   var newCity = request.body;
+   if (newCity.city.length >= 4 && newCity.state.length >= 2) {
+      cities[newCity.city] = newCity.state;
+      response.status(201).json(newCity.city);
+   } else {
+      console.log('Enter a valid city and state');
+      response.status(400).json('Please enter a valid city and state');
+   }
 });
 
 app.get('/cities', function(request, response) {
@@ -36,10 +47,15 @@ app.get('/cities/:name', function(request,response) {
    // var city = name[0].toUpperCase() + name.slice(1).toLowerCase();
    var state = cities[request.cityName];
    if (!state) {
-      response.status(404).json('City not found!');
+      response.status(400).json('City not found!');
    } else {
       response.json(state);
    }
+});
+
+app.delete('/cities/:name', function(request, response) {
+   delete cities[request.cityName];
+   response.status(200);
 });
 
 app.listen(process.env.PORT);

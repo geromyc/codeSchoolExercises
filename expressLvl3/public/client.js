@@ -9,5 +9,6 @@ $(function(){
             list.push($('<option>', { text: cities[i] }));
         }
         $('.cities-list').append(list);
-    }
+    };
+    
 });
