@@ -1,7 +1,7 @@
 var express = require('express');
-if (express == undefined) {
-    console.log("expres is undefined");
-}
+// if (express == undefined) {
+//     console.log("express is undefined");
+// }
 var router = express.Router();
 console.log(router);
 var bodyParser = require('body-parser');
