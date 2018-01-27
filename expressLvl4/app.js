@@ -11,7 +11,7 @@ var cities = {
    'Boston': 'Massachusetts',
    'Indianapolis': 'Indiana',
    'Chicago': 'Illinois',
-   'Los Angeles': 'California',};
+   'Hartford': 'Conneticut',};
    
 app.param('name', function(request, response, next){
    var name = request.params.name;
