@@ -36,7 +36,9 @@ $(function(){
         $.ajax({
             type: 'DELETE', url: '/cities/' + target.data('block')
         }).done(function() {
+            console.log('hello');
             target.parents('li').remove();
         });
+         
     });
 });
