@@ -1,8 +1,13 @@
-db.monsters.insert({"name": "Peon", "health": 50, "last fought": "3 Jan 2018", "attacks": ["Stab", "Slash", "Poke"], "db": {"attack": 10, "defense": 5}})
+var mongo = function(name, health, last_fought, attacks, db) {
+    db.monsters.insert({
+        "name": "Peon", 
+        "health": 50, 
+        "last_fought": new Date(2018, 0, 28),
+        "attacks": ["Stab", "Slash", "Poke"], 
+        "db": {"attack": 10, "defense": 5}})
+};
 
-db.monsters.insert({"name": "Peon", "health": 50, "last fought": "3 Jan 2018", "attacks": ["Stab", "Slash", "Poke"]})
-
-db.monsters.find()
+console.log(db.monsters.find());
 
 db.monsters.find("name": "Peon")
 
