@@ -9,6 +9,7 @@
   "author": "Geromy Cunningham",
   "license": "MIT"
   "dependencies": {
+    "angular": "^1.6.8",
     "express": "^4.16.2"
   }
 }
