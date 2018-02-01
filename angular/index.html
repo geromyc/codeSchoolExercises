@@ -8,13 +8,16 @@
         <title>Car Rental Angular</title>
     </head>
     <body ng-controller="RentalController as rental">
-        <h1>Geromy's Quick Pick Car Rentals</h1>
+        <h1 class="text-center">Geromy's Quick Pick Car Rentals</h1>
         <div ng-repeat="product in rental.products">
-            <img ng-src="{{product.images[0].full}}"/>
-            <h2> {{rental.product.type}} </h2>
-            <h3> {{rental.product.price | currency}} </h3>
-            
-            <button ng-show="rental.product.canRent"> Rent Car </button>
+            <img ng-src="{{product.image}}"/>
+            <div ng-show="product.canRent">
+                <h3> {{product.type}} {{product.model}} </h3>
+                <h4> {{product.price | currency}} per day</h4>
+                <p> {{product.description}} </p>
+                <button ng-show="product.canRent" ng-controller="RentController as rentCtrl" ng-click="rentCtrl.rentedCar(product)"> Rent Car </button>
+            </div>
+            <h3 ng-hide="product.canRent">Unavailable</h3>
         </div>
         
         
