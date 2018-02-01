@@ -1,19 +1,6 @@
-<<<<<<< HEAD
-mongo level 1
-function mongo(name, health, last_fought, attacks, stats, db) {
-    db.monsters.insert({
-        "name": name, 
-        "health": health, 
-        "last_fought": last_fought,
-        "attacks": [attacks], 
-        "stats" {stats}
-};
-mongo(Peon, 50, new Date(2018, 0, 28), ["Stab", "Slash", "Poke"], {"attack": 10, "defense": 5})
-=======
 mongo level 3
 // monsters with attack lower than 10
 db.monsters.find({"stats.attack": {"$lt": 10}})
->>>>>>> mongoLvl2
 
 // monsters above level 5 but lower than 15 inclusive
 db.monsters.find({"Level": {"$gt": 5, "$lte": 15}})
